@@ -1,0 +1,20 @@
+{
+  "development": {
+   
+    "dialect":"sqlite",
+    "storage": "abd.sqlite3",
+    "logging": false
+
+    
+  },
+  "test": {
+    "dialect": "sqlite",
+    "storage": "abd.sqlite3",
+    "logging": false
+  },
+  "production": {
+    "dialect": "sqlite",
+    "storage": "abd.sqlite3",
+    "logging": false
+  }
+}
