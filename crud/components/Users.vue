@@ -10,22 +10,29 @@
            Phone: {{user.phone}} <br>
           </li>
         </ul>
+      <CreateUser />
     </div>
 </template>
 
 <script>
 import axios from 'axios'
 export default {
-  created() {
-    this.get()
-  },
-
-  methods: {
+  // created() {
+  //   axios.get('http://localhost:8000/api/users')
+  //     .then(response => {
+  //       this.users = response.data
+  //     })
+  //     .catch(e => {
+  //       console.log(e)
+  //     })
+  // }
+  // },
+  computed:{
     get() {
-       axios.get("http://localhost:4444/users/").then((result)=>{
-         console.log('fdfdfdff',result.data);
-         this.users = result.data;
-       })
+      axios.get("http://localhost:4444/users/").then((result)=>{
+        console.log('fdfdfdff',result.data);
+        this.users = result.data;
+      })
 
     }
   },

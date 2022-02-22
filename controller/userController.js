@@ -31,13 +31,10 @@
 }
 
 async function updateUser(req, res) {
+  const id =req.params.id
     try {
-        const user = await sequelize.models.Users.update(req.body, {
-            where: {
-                id: req.params.id,
-            },
-        });
-        res.status(200).send(user);
+        const user = await sequelize.models.Users.update(req.body, id);
+        res.status(200).json(user);
     } catch (err) {
         res.send(err);
     }
@@ -57,4 +54,4 @@ async function deleteUser(req, res) {
 }
 
 
- module.exports = { getAllUsers , getUserById, createUser, updateUser, deleteUser};
+module.exports = { getAllUsers , getUserById, createUser, updateUser, deleteUser};
