@@ -40,18 +40,18 @@ async function updateUser(req, res) {
     }
 }
 
-async function deleteUser(req, res) {
-    try {
-        const user = await sequelize.models.Users.destroy({
-            where: {
-                id: req.params.id,
-            },
-        });
-        res.status(200).send(user);
-    } catch (err) {
-        res.send(err);
-    }
-}
+ async function deleteUser(req, res) {
+   try {
+     const user = await sequelize.models.Users.destroy({
+       where: {
+         id: req.params.id,
+       },
+     });
+     res.status(200).json(user);
+   } catch (err) {
+     res.send(err);
+   }
+ }
 
 
 module.exports = { getAllUsers , getUserById, createUser, updateUser, deleteUser};

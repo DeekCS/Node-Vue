@@ -1,5 +1,5 @@
 <template>
-<!-- create form create user using Vuetify -->
+  <!-- create form create user using Vuetify -->
   <v-form name="createUserForm" method="post" v-model="valid" ref="createUserForm" @submit.prevent="createUser">
     <v-card>
       <v-card-title>
@@ -44,7 +44,7 @@
                 required
               ></v-text-field>
             </v-flex>
-<!--          submit btn-->
+            <!--submit btn-->
             <v-flex xs12>
               <v-btn
                 color="primary"
