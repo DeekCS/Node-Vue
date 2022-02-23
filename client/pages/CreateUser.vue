@@ -83,13 +83,15 @@ export default {
   //
   // },
   methods: {
-    createUser() {
+    async createUser() {
       this.$refs.createUserForm.validate()
       if (this.valid) {
-        this.$store.dispatch('createUser', this.user)
+        await this.$store.dispatch('createUser', this.user)
         // this.$router.push('/')
-        this.$emit("add new user")
+        // this.$emit("add-user")
+        this.$refs.createUserForm.reset()
       }
+      await this.$router.push('/')
     }
   }
 }

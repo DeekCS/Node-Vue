@@ -60,7 +60,7 @@ async function deleteUser(req, res) {
         id: req.params.id,
       },
     });
-    res.status(200).send(user);
+    res.sendStatus(200).send(user);
   } catch (err) {
     res.send(err);
   }

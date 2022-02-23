@@ -2,12 +2,22 @@
   <!--show all users from api   -->
   <div class="">
     <h1>Users</h1>
-    <!--      Table using Vuetify to get all users foreach of all users from get api and show all users -->
-    <template>
-      <v-simple-table>
+    <v-btn
+      color="primary"
+      @click="$router.push('/CreateUser')"
+      float="right"
+    >
+      Create User
+    </v-btn>
+    <template v-if="users.length > 0 ">
+
+      <v-simple-table >
         <template v-slot:default>
           <thead>
           <tr>
+            <th class="text-left">
+            #
+            </th>
             <th class="text-left">
               User Name
             </th>
@@ -28,8 +38,9 @@
           <tbody>
           <tr
             v-for="user in users"
-            :key="user.name"
+            :key="user.id"
           >
+            <td class="text-left">{{user.id}}</td>
             <td>{{ user.username }}</td>
             <td>{{ user.name }}</td>
             <td>{{ user.age }}</td>
@@ -52,10 +63,15 @@
           </tbody>
         </template>
       </v-simple-table>
+
+    </template>
+
+    <template v-else>
+     <h2>NO USERS FOUND !</h2>
     </template>
 
 
-    <!--      <CreateUser />-->
+<!--          <CreateUser @add-user="get()"/>-->
   </div>
 </template>
 
@@ -76,6 +92,7 @@ export default {
 
   methods: {
     get() {
+      console.log("getting")
       axios.get('http://localhost:4444/users/')
         .then(response => {
           this.users = response.data
